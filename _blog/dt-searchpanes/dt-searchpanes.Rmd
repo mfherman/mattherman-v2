@@ -1,0 +1,105 @@
+---
+title: "Using the SearchPanes extension with DT"
+description: |
+  Using invisible columns to sort correctly with custom formatting.
+author:
+  - name: Matt Herman
+date: 2020-05-17
+categories:
+  - dt
+citation: false
+output:
+  distill::distill_article:
+    self_contained: false
+    citation: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  echo = TRUE
+  )
+```
+
+If you've created tables in R Markdown documents for HTML or Shiny, you've probably used the [DT package](https://rstudio.github.io/DT/) which is an R interface to the [DataTables JavaScript library](https://datatables.net/). I won't give an introduction to DT, but the best place to start is the [DT website](https://rstudio.github.io/DT/), which has lots of examples.
+
+If you want to do filtering or row selection, the standard DataTables search box is not very flexible. A new option is the SearchPanes extension that was [added to DataTables in early 2020](https://datatables.net/blog/2020-01-13) and quickly implemented in [DT as well](https://github.com/rstudio/DT/pull/756). It is [very well documented](https://datatables.net/extensions/searchpanes/) on the DataTables website.
+
+The basic usage of SearchPanes allows you to filter multiple columns using multi-select (hold down <kbd>SHIFT</kbd>!) for each column. To get started, just add the `Select` and `SearchPanes` as extensions when you create a DataTable. You also need to insert `P` as a `dom` option to display the panes. Here's a minimal  example using gapminder data:
+
+```{r}
+library(DT)
+library(gapminder)
+
+gapminder %>% 
+  datatable(
+    extensions = c("SearchPanes", "Select"),
+    options = list(dom = "Ptip")
+    )
+```
+<br>
+<br>
+Another nice feature of SearchPanes is that it shows you the number of rows in each category. For example, at a quick glance we can see there are 12 rows for each country and 624 of the rows are African countries.
+
+Depending on the layout of your final table and document, you may find the search pane taking up too much valuable real estate. A good way to use the SearchPanes feature in a smaller footprint is to hide the pane in a button. [Buttons](https://datatables.net/extensions/buttons/) is another extension for DataTables that is supported by DT.
+
+In order to create a button for the search pane, add `"Buttons"` to `extensions`, set the buttons options to use `searchPanes` (note the camelCase here!), and replace `P` with `B` in the `dom` options.
+
+```{r}
+gapminder %>% 
+  datatable(
+    extensions = c("SearchPanes", "Select", "Buttons"),
+    options = list(
+      dom = "Btip",
+      buttons = list("searchPanes")
+      )
+    )
+```
+<br>
+<br>
+Now, the search pane pops open when you click the button.
+
+There is a ton more customization that is possible using the new SearchPanes extension, including [modifying the layout](https://datatables.net/extensions/searchpanes/layout), creating [custom filtering functions](https://datatables.net/extensions/searchpanes/customSearchFunctions), and more. But a few simple modifications I'll demonstrate are: 1) choosing which columns to search, 2) removing the SearchPane controls, and 3) changing the text of the SearchPanes button.  
+
+1. To limit which columns are active for searching, add `searchPanes = list(show = FALSE), targets = 3:5)` to `columnDefs`. This hides columns 3, 4, and 5, and only displays search panes for the first 3 columns (JS uses 0-based indexing!). The SearchPanes default is to included all columns.
+
+2. For a simple table, you might not need all of the SearchPanes controls, which allow for sorting and searching *within* the search pane. To remove the controls, add `list(searchPanes = list(controls = FALSE), targets = 0:2)` to the columnDefs option. We need to set this option for the indices of the columns we've chosen to add SearchPanes to.
+
+<aside>I had some trouble figuring out how to hide the controls when I was using SearchPanes within a button. Thank you so much to [shrektan](https://shrektan.com/) for [pointing me in the right direction](https://github.com/rstudio/DT/issues/804#issuecomment-620637155) for this option that doesn't seem to be documented.
+</aside>
+
+3. "SearchPanes" isn't such a great label for the button. Let's call it "Filter Rows" instead, by setting `language = list(searchPanes = list(collapse = "Filter Rows"))`.
+
+<aside>Candidly, I need [shrektan's help](https://github.com/rstudio/DT/issues/804#issuecomment-620610263) for this one too!
+</aside>
+
+While we're tidying things up, let's set better column names, format the numeric variables, get rid of the row numbers, center all the columns, and replace the pagination with a the [Scroller extension](https://datatables.net/extensions/scroller/).
+
+```{r}
+gapminder %>% 
+  datatable(
+    rownames = FALSE,
+    colnames = c("Country", "Continent", "Year",
+                 "Life Exp", "Population", "GDP per capita"),
+    extensions = c("SearchPanes", "Select", "Buttons", "Scroller"),
+    options = list(
+      dom = "Btip",
+      buttons = list("searchPanes"),
+      language = list(searchPanes = list(collapse = "Filter Rows")),
+      scrollY = 390,
+      scroller = TRUE,
+      columnDefs = list(
+        list(searchPanes = list(show = FALSE), targets = 3:5),
+        list(searchPanes = list(controls = FALSE), targets = 0:2),
+        list(className = "dt-center", targets = 0:5)
+        )
+      )
+    ) %>% 
+  formatRound(4, 1) %>% 
+  formatRound(5, 0) %>% 
+  formatCurrency(6, digits = 0)
+```
+
+And there you have it, a nice table that makes it easy to view gapminder data from Oceania in 1972 and 1977!

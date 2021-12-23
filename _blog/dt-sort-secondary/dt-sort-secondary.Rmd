@@ -1,0 +1,59 @@
+---
+title: "Custom sorting of strings with DataTables"
+description: |
+  Using invisible columns to sort correctly with custom formatting.
+author:
+  - name: Matt Herman
+date: 2020-05-17
+categories:
+  - dt
+citation: false
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  echo = TRUE
+  )
+```
+
+If you have a column of dates you want to display in a DataTable, you may want to format those columns in a format that users are more used to seeing. For example, instead of 2013-01-13, an American viewer may be more comfortable with 1/13/2013 or Jan 13, 2013. These string conversions are straightforward, but the problem becomes allowing a user to sort by these string date columns in the DataTable.
+
+```{r}
+library(DT)
+library(dplyr)
+library(nycflights13)
+
+jfk_weather <- weather %>% 
+  filter(origin == "JFK", hour == 12) %>% 
+  mutate(date = format(time_hour, "%b %d, %Y")) %>% 
+  select(date, temp, dewp, humid, wind_speed)
+
+datatable(jfk_weather)
+```
+<br>
+<br>
+The table looks okay to start because it is in the same order as the input data frame, but click on the date column to sort. April is the first month and September is the last month, alphabetically speaking. As far as DataTables knows, this is a normal character column and so it sorts accordingly.
+
+In order to have nicely formatted dates AND the correct sort order, you need to tell DataTable to **use a secondary column to order the date column**.
+
+One nice way to do this, if your input data is already sorted in the correct chronological order, is to use the row names of your input data frame as the sort order for the date column. This works because we are using a data frame that *does not* have row names set and so the row names turn out to be (`"1"`, `"2"`, `"3"`, ...). If we set the DataTable to order by the row names when we sort the date column, everything will work out as expected.
+
+```{r}
+datatable(
+  jfk_weather,
+  options = list(columnDefs = list(list(orderData = 0, targets = 1),
+                                   list(visible = FALSE, targets = 0)))
+  )
+```
+
+In English, set the `orderData` option to the column index of the row names (`0`) for the date column index (`1`), and then set the row names column to be invisible (this part isn't necessary for the sorting to work, but we don't need really to see those row names).
+
+Check it out, the date column now sorts correctly!
+
+You don't need to use the row names as your sort order column. Set any other column in your data to be a sort order by using the appropriate column index in the `orderData` argument and then choose whether or not to hide that column with the `visible` option.

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Matt Herman</title>
+    <link>https://mattherman.info</link>
+    <atom:link href="https://mattherman.info/blog.xml" rel="self" type="application/rss+xml"/>
+    <description>Matt Herman's personal website
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Using the SearchPanes extension with DT</title>
+      <dc:creator>Matt Herman</dc:creator>
+      <link>https://mattherman.info/blog/dt-searchpanes</link>
+      <description>Using invisible columns to sort correctly with custom formatting.</description>
+      <category>dt</category>
+      <guid>https://mattherman.info/blog/dt-searchpanes</guid>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Custom sorting of strings with DataTables</title>
+      <dc:creator>Matt Herman</dc:creator>
+      <link>https://mattherman.info/blog/dt-sort-secondary</link>
+      <description>Using invisible columns to sort correctly with custom formatting.</description>
+      <category>dt</category>
+      <guid>https://mattherman.info/blog/dt-sort-secondary</guid>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Use patchwork and R Markdown for multi-image slide layouts in PowerPoint</title>
+      <dc:creator>Matt Herman</dc:creator>
+      <link>https://mattherman.info/blog/ppt-patchwork</link>
+      <description>Using ggplot2 to trick people into thinking you made PowerPoint slides.</description>
+      <category>ggplot2</category>
+      <category>patchwork</category>
+      <category>powerpoint</category>
+      <guid>https://mattherman.info/blog/ppt-patchwork</guid>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://mattherman.info/blog/ppt-patchwork/ppt-patchwork_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="624"/>
+    </item>
+  </channel>
+</rss>

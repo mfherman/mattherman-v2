@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://mattherman.info/blog.html</loc>
+    <lastmod>2021-12-23T13:30:43-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattherman.info/</loc>
+    <lastmod>2021-12-24T14:41:48-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattherman.info/blog/dt-searchpanes/</loc>
+    <lastmod>2021-12-23T14:10:18-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattherman.info/blog/dt-sort-secondary/</loc>
+    <lastmod>2021-12-23T14:09:50-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattherman.info/blog/ppt-patchwork/</loc>
+    <lastmod>2021-12-24T14:21:47-05:00</lastmod>
+  </url>
+</urlset>
