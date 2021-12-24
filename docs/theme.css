@@ -111,19 +111,6 @@ h1, h2, h3 {
   font-weight: 400 !important;
 }
 
-/*
-.home-column {
-  float: left;
-  width: 50%;
-}
-
-.home-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
-
 .home-row {
   display: flex;
   align-items: center;

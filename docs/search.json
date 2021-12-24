@@ -5,14 +5,14 @@
       "title": "Posts",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-24T15:03:52-05:00"
+      "last_modified": "2021-12-24T15:16:23-05:00"
     },
     {
       "path": "index.html",
       "title": "Matt Herman",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nMatt Herman\r\n\r\n\r\n\r\nI’m a Data Scientist in the Research Division of the Council of State Governments Justice Center where I do quantitative analysis and data visualization for criminal justice reform projects. Most recently, I’ve worked on the Justice Reinvestment Initiative in Minnesota and an analysis of racial disparities in the Montana criminal justice system.\r\nPrior to joining the Justice Center, I was the Deputy Director of the ChildStat Data Unit in the Office of Research and Analytics at the New York City Administration for Children’s Services where I worked to improve outcomes for children and families involved in the child welfare system by using data to monitor and evaluate the effectiveness of the agency. During the Covid-19 pandemic, I developed an “Early Alert Dashboard” that tracked week-to-week changes in child protection metrics and was used by senior leadership at the agency.\r\nI like using the R programming language. I’m a co-author of the tidycensus R package, that makes it easy to download US Census and American Community Survey data using the Census web API. I also built and maintain a Covid-19 tracking site for Westchester County, NY.\r\nBefore ACS, I spent five years recording oral histories with ends me StoryCorps and helped to open a butcher shop and salumeria called Ends Meat. I received a BA in American Studies from Columbia University in 2006 and an MS in Applied Social Research from Hunter College in 2018.\r\nI live in Katonah, NY with my wife, Jaime, daughters, Maya and Tessie, and cat, Isabella. Get in touch at mfherman@gmail.com.\r\n\r\n\r\nd-title, d-byline {\r\n  display: none\r\n}\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-24T15:04:01-05:00"
+      "last_modified": "2021-12-24T15:16:41-05:00"
     }
   ],
   "collections": ["blog/blog.json"]

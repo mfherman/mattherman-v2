@@ -2238,19 +2238,6 @@ h1, h2, h3 {
   font-weight: 400 !important;
 }
 
-/*
-.home-column {
-  float: left;
-  width: 50%;
-}
-
-.home-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
-
 .home-row {
   display: flex;
   align-items: center;
@@ -2652,7 +2639,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   <!--radix_placeholder_site_in_header-->
 <script>
    document.addEventListener("DOMContentLoaded", function () {
-     if (!/posts/.test(location.pathname)) {
+     if (!/blog/.test(location.pathname)) {
        return;
      }
 
