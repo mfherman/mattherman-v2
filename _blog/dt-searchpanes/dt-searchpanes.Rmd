@@ -1,10 +1,10 @@
 ---
 title: "Using the SearchPanes extension with DT"
 description: |
-  Using invisible columns to sort correctly with custom formatting.
+  Filter and sort tables without Shiny.
 author:
   - name: Matt Herman
-date: 2020-05-17
+date: 2020-05-19
 categories:
   - dt
 citation: false

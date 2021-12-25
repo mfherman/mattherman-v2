@@ -2617,7 +2617,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_site_in_header-->
   <script>
      document.addEventListener("DOMContentLoaded", function () {
-       if (!/blog/.test(location.pathname)) {
+       if (!/blog/.test(location.pathname) || location.pathname.endsWith('blog.html')) {
          return;
        }
 
@@ -2824,7 +2824,7 @@ function init_posts_list() {
 <a href="blog/dt-searchpanes/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["dt"]}</script>
 <div class="metadata">
-<div class="publishedDate">May 17, 2020</div>
+<div class="publishedDate">May 19, 2020</div>
 <div class="dt-authors">
 <div class="dt-author">Matt Herman</div>
 </div>
@@ -2837,7 +2837,7 @@ function init_posts_list() {
 <div class="dt-tags">
 <div class="dt-tag">dt</div>
 </div>
-<p>Using invisible columns to sort correctly with custom formatting.</p>
+<p>Filter and sort tables without Shiny.</p>
 </div>
 </a>
 <a href="blog/dt-sort-secondary/" class="post-preview">

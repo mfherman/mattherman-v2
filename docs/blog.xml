@@ -7,15 +7,15 @@
     <description>Matt Herman's personal website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Using the SearchPanes extension with DT</title>
       <dc:creator>Matt Herman</dc:creator>
       <link>https://mattherman.info/blog/dt-searchpanes</link>
-      <description>Using invisible columns to sort correctly with custom formatting.</description>
+      <description>Filter and sort tables without Shiny.</description>
       <category>dt</category>
       <guid>https://mattherman.info/blog/dt-searchpanes</guid>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Custom sorting of strings with DataTables</title>

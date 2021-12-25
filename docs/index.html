@@ -2616,7 +2616,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_site_in_header-->
   <script>
      document.addEventListener("DOMContentLoaded", function () {
-       if (!/blog/.test(location.pathname)) {
+       if (!/blog/.test(location.pathname) || location.pathname.endsWith('blog.html')) {
          return;
        }
 
